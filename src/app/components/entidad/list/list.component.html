@@ -1,0 +1,34 @@
+<div class="item__list">
+    <div class="item__credit">
+      <div class="credit__title">
+        <h3>Entidades</h3><span>Listado de Entidades</span> 
+      </div>
+
+      <div class="credit__table">
+        <table>
+          <tr>
+            <th>ID Cuenta</th>
+            <th>Nr Documento</th>
+            <th>Nombre Comercial</th>
+            <th>TipoContribuyente</th>
+            <th>TipoDocumento</th>
+            <th>Editar</th>
+            <th>Eliminar</th>
+            <th></th>
+            <th></th>
+          </tr>
+          <tr *ngFor="let p of entidades">
+            <td>{{ p.id_entidad }}</td>
+            <td>{{ p.nro_documento }}</td>  
+            <td>{{ p.nombre_comercial }}</td>
+            <td>{{ p.tipoContribuyente?.nombre}}</td>
+            <td>{{ p.tipoDocumento?.nombre}}</td>
+            <td><a class="ligth" (click)="redirectEditar(p.id_entidad!)">Editar</a></td>
+            <td><a class="ligth" (click)="eliminarproducto(p.id_entidad!)">Eliminar</a></td>
+          </tr>
+  
+        </table>
+      </div>
+    </div>
+  </div>
+  

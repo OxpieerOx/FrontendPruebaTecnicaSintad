@@ -1,0 +1,33 @@
+<div class="page loader">
+  <div class="page1__login">
+    <section class="section1">
+      <div class="section1__align">
+        <div class="section1__header">
+          <div class="item__list">
+            <div class="item">
+              <div class="item__image"><img src="assets/sintad.svg"></div>
+              <form>
+                <div>
+                  <label>Nombre</label>
+                  <input type="text" required [(ngModel)]="user.userName" [ngModelOptions]="{standalone: true}">
+                </div>
+                <div>
+                  <label>Contraseña</label>
+                  <input type="password" required [(ngModel)]="user.password" [ngModelOptions]="{standalone: true}">
+                </div>
+                <div>
+                  <button (click)="login()">Acceder</button>
+                </div>
+                <div>
+                  <div *ngIf="errorMessage" style="color: red;">
+                    {{ errorMessage }}
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>

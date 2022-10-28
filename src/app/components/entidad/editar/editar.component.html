@@ -1,0 +1,140 @@
+<h2>Entidades: <small>!Editar!</small></h2>
+<hr>
+
+
+<form [formGroup]="entidadForm">
+    <div >
+        <div class="col-md-6">
+            <label >Tipo Documento</label>
+                <select  class="form-control" formControlName="tipodocumentoid">
+                    <option [ngValue]="undefined">---SELECIONA UN TIPO DOCUMENTO---</option>
+                    <option  *ngFor="let tipodocumento of tipoDocumentos" [ngValue]="tipodocumento.id_tipo_documento">{{tipodocumento.nombre}}</option>
+                </select>
+        </div>
+        <div class="col-md-6">
+            <label for="inputPassword4">Nr Documento</label>
+            <input [(ngModel)]="entidadcargada.nro_documento"  type="text" class="form-control" formControlName="nrdocumento" placeholder="documento">
+            <div *ngIf="nrdocumento.invalid && (nrdocumento.dirty || nrdocumento.touched)" class="my-1" style="color: rgb(197, 68, 68);">
+              <div *ngIf="nrdocumento.errors.required">
+                * El campo es requerido.
+              </div>
+              
+              <div *ngIf="nrdocumento.errors.pattern">
+                  * El formato del nrdocumento no es válido.
+              </div>
+              
+              <div *ngIf="nrdocumento.errors.maxlength">
+                * Se requieren máximo 25 caracteres.
+              </div>
+              
+              <div *ngIf="nrdocumento.errors.minlength">
+                * Se requieren mínimo 8 caracteres.
+              </div>
+            </div>
+            
+                                
+          </div>
+    </div>
+    <div>
+      <label>Razon Social</label>
+      <input [(ngModel)]="entidadcargada.razon_social" type="text" class="form-control" formControlName="razonsocial" placeholder="Razon Social..">
+      <div *ngIf="razonsocial.invalid && (razonsocial.dirty || razonsocial.touched)" class="my-1" style="color: rgb(197, 68, 68);">
+              
+        <div *ngIf="razonsocial.errors.required">
+          * El campo es requerido.
+        </div>
+        
+        <div *ngIf="razonsocial.errors.pattern">
+            * El formato del razonsocial no es válido.
+        </div>
+        
+        <div *ngIf="razonsocial.errors.maxlength">
+          * Se requieren máximo 25 caracteres.
+        </div>
+        
+        <div *ngIf="razonsocial.errors.minlength">
+          * Se requieren mínimo 8 caracteres.
+        </div>
+      </div>
+    </div>
+    <div >
+      <label for="inputAddress2">Nombre comercial</label>
+      <input  [(ngModel)]="entidadcargada.nombre_comercial"   type="text" class="form-control" formControlName="nombrecomercial" placeholder="Nombre Comercial">
+      <div *ngIf="nombrecomercial.invalid && (nombrecomercial.dirty || nombrecomercial.touched)" class="my-1" style="color: rgb(197, 68, 68);">
+              
+        <div *ngIf="nombrecomercial.errors.required">
+          * El campo es requerido.
+        </div>
+        
+        <div *ngIf="nombrecomercial.errors.pattern">
+            * El formato del nombrecomercial no es válido.
+        </div>
+        
+        <div *ngIf="nombrecomercial.errors.maxlength">
+          * Se requieren máximo 25 caracteres.
+        </div>
+        
+        <div *ngIf="nombrecomercial.errors.minlength">
+          * Se requieren mínimo 8 caracteres.
+        </div>
+      </div>
+    </div>
+    <div >
+      <div class="col-md-6">
+        <label >Direccion</label>
+        <input [(ngModel)]="entidadcargada.direccion" type="text" class="form-control" formControlName="direccion">
+        <div *ngIf="direccion.invalid && (direccion.dirty || direccion.touched)" class="my-1" style="color: rgb(197, 68, 68);">
+              
+          <div *ngIf="direccion.errors.required">
+            * El campo es requerido.
+          </div>
+          
+          <div *ngIf="direccion.errors.pattern">
+              * El formato del direccion no es válido.
+          </div>
+          
+          <div *ngIf="direccion.errors.maxlength">
+            * Se requieren máximo 25 caracteres.
+          </div>
+          
+          <div *ngIf="direccion.errors.minlength">
+            * Se requieren mínimo 8 caracteres.
+          </div>
+        </div>
+        
+      </div>
+      <div class="col-md-4">
+        <label for="tipocontribuyenteid">Tipo Contribuyente</label>
+        <select id="tipocontribuyenteid" class="form-control" formControlName="tipocontribuyenteid">
+          <option selected>---SELECIONA UN CONTRIBUYENTE---</option>
+          <option *ngFor="let tipocontribuyente of TipoContribuyentes" [ngValue]="tipocontribuyente.id_tipo_contribuyente">{{tipocontribuyente.nombre}}</option>
+        </select>
+      </div>
+
+      <div class="col-md-2">
+        <label for="inputZip">Telefono</label>
+        <input [(ngModel)]="entidadcargada.telefono" type="text" class="form-control" id="inputZip" formControlName="telefono">
+        <div *ngIf="telefono.invalid && (telefono.dirty || telefono.touched)" class="my-1" style="color: rgb(197, 68, 68);">
+              
+          <div *ngIf="telefono.errors.required">
+            * El campo es requerido.
+          </div>
+          
+          <div *ngIf="telefono.errors.pattern">
+              * El formato del telefono no es válido.
+          </div>
+          
+          <div *ngIf="telefono.errors.maxlength">
+            * Se requieren máximo 25 caracteres.
+          </div>
+          
+          <div *ngIf="telefono.errors.minlength">
+            * Se requieren mínimo 8 caracteres.
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <button [disabled]="entidadForm.invalid" type="submit" class="btn btn-primary"(click)="Actualizar()">Crear</button>
+  </form>
